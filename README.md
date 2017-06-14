@@ -85,33 +85,33 @@ $ git commit -m 'First commit'
 ```
 
 Finally, we'll push these changes up to GitHub. The following should push the commits:
+```bash
+$ git branch --set-upstream-to=origin/master master
+Branch master set up to track remote branch master from origin.
+
+$ git pull --allow-unrelated-histories
+Merge made by the 'recursive' strategy.
+ .gitignore | 22 ++++++++++++++++++++++
+ README.md  |  2 ++
+ 2 files changed, 24 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+
+```
+Then:
 
 ```bash
 $ git push
-fatal: The current branch master has no upstream branch.
-To push the current branch and set the remote as upstream, use
-
-    git push --set-upstream origin master
-    
-$ git push --set-upstream origin master
-Counting objects: 3, done.
-Writing objects: 100% (3/3), 221 bytes | 0 bytes/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/ProfKnight/lab03-exercise.git
- * [new branch]      master -> master
-Branch master set up to track remote branch master from origin.
-
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 573 bytes | 0 bytes/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+To https://github.com/ProfKnight/lab03-exercise-test.git
+   347584a..7f2959b  master -> master
 ```
 
-## Step 5. Pulling from GitHub
-
-Now we want to pull that repository from GitHub. Issue the following command and enter your user name and password if prompted:
-
-```bash
-$ git pull
-```
-
-## Step 6. Diffing the changes
+## Step 5. Diffing the changes
 
 One last step to fully familiarize yourself with git workflow. Make a simple, or even complex change to hello.groovy. Then use git to tell you what the difference between what you commited last and what you have now. Issue the following command:
 
@@ -127,6 +127,6 @@ index e69de29..a03be86 100644
 
 Commit that change, without me telling you want the exact command is here in the lab write-up, and then make another change. Do the `git diff` command again and see what it says
 
-## Step 7. Wrapping it up
+## Step 6. Wrapping it up
 
 That's it for now. I highly recommend reading a git and/or GitHub tutorial. I highly recommend [GitMagic](http://www-cs-students.stanford.edu/~blynn/gitmagic/) for git and [Git and GitHub learning resources](https://help.github.com/articles/git-and-github-learning-resources/) for GitHub
