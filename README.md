@@ -103,7 +103,7 @@ Branch master set up to track remote branch master from origin.
 
 ```
 
-Step 5. Pulling from GitHub
+## Step 5. Pulling from GitHub
 
 Now we want to pull that repository from GitHub. Issue the following command and enter your user name and password if prompted:
 
