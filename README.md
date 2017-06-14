@@ -61,7 +61,7 @@ $ touch hello.groovy
 Issue a status command. You should see something like this:
 
 ```bash
-$git status
+$ git status
 On branch master
 
 Initial commit
