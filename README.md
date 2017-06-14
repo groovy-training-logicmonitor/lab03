@@ -10,6 +10,123 @@ Once you have finished creating your repository, copy the its URL using the *Clo
 
 ## Step 2. Creating a git repository locally
 
-Opening the project is simple. Select *Open* from the Welcome screen. Next, navigate to the location of the project on your computer and select the directory *lab02*. This should open the project in IntelliJ and you should be ready to run it.
+First, using the terminal app, create a new, empty directory and change to that directory. So for example:
 
-## Step 3. Writing functions
+```bash
+$ mkdir lab03-exericise
+$ cd lab03-exercise
+```
+
+Next, initialize this directory as a local git repository. This action is done with the following command, inside the directory you just created above:
+
+```bash
+$ git init
+```
+
+The result of this command should look something like:
+
+```bash
+Initialized empty Git repository in /Users/aknight/lab03-exercise/.git/
+```
+
+Next, check the status of this repository. The following should look similar to what you see on your computer when you type the command `git status`:
+
+```bash
+$ git status
+On branch master
+
+Initial commit
+
+nothing to commit (create /copy files and use "git add" to track)
+```
+
+## Step 4. Setting up your remote
+
+As of now, the repository we created above only exists locally. What we'd want to do is associate with the remote repository you created in Step 1. To do that we need to tell git where the remote is located and then pull the repository down to our local repository. You should still have in your clip board the URL from cloning the repository you created. If you don't go back there now and re-copy that URL. Next enter the following commands in the terminal:
+
+```bash
+$ git remote add origin https://github.com/path_to_your_lab03/lab03-exercise
+
+$ git remote -v
+origin https://github.com/path_to_your_lab03/lab03-exercise.git (pull)
+origin https://github.com/path_to_your_lab03/lab03-exercise.git (fetch)
+```
+
+Next, we'll create a file, empty for now, and then commit it. Something like this:
+
+```bash
+$ touch hello.groovy
+```
+
+Issue a status command. You should see something like this:
+
+```bash
+git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	hello.groovy
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Next, we'll add that file, commit it and push it up to the repository. Your session should look something like:
+
+```bash
+$ git add hello.groovy
+$ git commit -m 'First commit'
+[master (root-commit) 24f3527] First commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hello.groovy
+```
+
+Finally, we'll push these changes up to GitHub. The following should push the commits:
+
+```bash
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+    
+$ git push --set-upstream origin master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 221 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/ProfKnight/lab03-exercise.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+
+```
+
+Step 5. Pulling from GitHub
+
+Now we want to pull that repository from GitHub. Issue the following command and enter your user name and password if prompted:
+
+```bash
+$ git pull
+```
+
+## Step 6. Diffing the changes
+
+One last step to fully familiarize yourself with git workflow. Make a simple, or even complex change to hello.groovy. Then use git to tell you what the difference between what you commited last and what you have now. Issue the following command:
+
+```bash
+$ git diff hello.groovy
+diff --git a/hello.groovy b/hello.groovy
+index e69de29..a03be86 100644
+--- a/hello.groovy
++++ b/hello.groovy
+@@ -0,0 +1 @@
++println 'hello world'
+```
+
+Commit that change, without me telling you want the exact command is here in the lab write-up, and then make another change. Do the `git diff` command again and see what it says
+
+## Step 7. Wrapping it up
+
+That's it for now. I highly recommend reading a git and/or GitHub tutorial. I highly recommend [GitMagic](http://www-cs-students.stanford.edu/~blynn/gitmagic/) for git and [Git and GitHub learning resources](https://help.github.com/articles/git-and-github-learning-resources/) for GitHub
